@@ -8,7 +8,7 @@ export default {
   component: MotionBox
 } as ComponentMeta<typeof MotionBox>
 
-const Template: ComponentStory<typeof MotionBox> = (args) => <MotionBox {...args} />
+const Template: ComponentStory<typeof MotionBox> = (args) => <MotionBox padding="2rem" {...args} />
 
 export const Basic = Template.bind({})
 Basic.args = {

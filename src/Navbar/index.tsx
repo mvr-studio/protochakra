@@ -14,14 +14,14 @@ const Navbar = ({ branding, children, maxWidth, ...containerProps }: NavbarProps
   const mobileDisplay = isExpanded ? 'flex' : 'none'
 
   return (
-    <Box paddingY="0.5" {...containerProps}>
+    <Box paddingY="0.5rem" {...containerProps}>
       <Container maxWidth={maxWidth || 'container.xl'}>
         <Flex display={['block', 'block', 'flex']} justify="space-between" align="center">
           <Flex justify="space-between" align="center">
-            <Box fontWeight={700} fontSize="1.5rem">
+            <Box fontWeight={700} fontSize="1.5rem" data-testid="protochakra.navbar.branding">
               {branding}
             </Box>
-            <Box display={['block', 'block', 'none']}>
+            <Box display={['block', 'block', 'none']} data-testid="protochakra.navbar.toggle">
               <Hamburger toggled={isExpanded} toggle={toggleExpanded} size={28} />
             </Box>
           </Flex>

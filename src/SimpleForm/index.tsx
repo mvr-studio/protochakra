@@ -12,7 +12,9 @@ import {
   Select,
   InputProps,
   TextareaProps,
-  SelectProps
+  SelectProps,
+  Checkbox,
+  ButtonProps
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
@@ -28,8 +30,8 @@ type FieldOptions = {
   value: string
 }
 
-type Field = {
-  label: FieldLabel
+export type Field = {
+  label?: FieldLabel
   name: FieldName
   type?: FieldType
   helperText?: string
@@ -52,6 +54,7 @@ interface SimpleFormProps {
   onSubmit: (data: Record<string, any>) => void
   buttonLabel?: string
   customErrorMessages?: Record<string, string>
+  buttonProps?: ButtonProps
 }
 
 const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest }: FormFieldProps, ref: any) => {
@@ -66,12 +69,19 @@ const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest 
           ))}
         </Select>
       )
+    case 'checkbox':
+      return (
+        // @ts-ignore
+        <Checkbox size="lg" ref={ref} {...rest}>
+          {placeholder}
+        </Checkbox>
+      )
     default:
       return <Input placeholder={placeholder} type={type} ref={ref} {...rest} />
   }
 })
 
-const SimpleForm = ({ fields, onSubmit, buttonLabel, customErrorMessages }: SimpleFormProps) => {
+const SimpleForm = ({ fields, onSubmit, buttonLabel, buttonProps, customErrorMessages }: SimpleFormProps) => {
   const {
     register,
     handleSubmit,
@@ -80,22 +90,38 @@ const SimpleForm = ({ fields, onSubmit, buttonLabel, customErrorMessages }: Simp
   const getFormError = (errorType: string) => customErrorMessages?.[errorType] || DEFAULT_FORM_ERRORS?.[errorType]
 
   return (
-    <Stack as="form" onSubmit={handleSubmit(onSubmit)} gridGap="0.5rem" noValidate>
+    <Stack as="form" onSubmit={handleSubmit(onSubmit)} gridGap="0.5rem" data-testid="protochakra.simpleForm" noValidate>
       {fields.map((field) => (
-        <FormControl isRequired={field?.isRequired} isInvalid={!!errors?.[field.name]} marginTop="1rem">
-          <FormLabel>{field.label}</FormLabel>
+        <FormControl
+          isRequired={field?.isRequired}
+          isInvalid={!!errors?.[field.name]}
+          marginTop="1rem"
+          data-testid="protochakra.simpleForm.control"
+        >
+          {field?.label && <FormLabel data-testid="protochakra.simpleForm.label">{field.label}</FormLabel>}
           <FormField
             type={field?.type}
             selectOptions={field?.selectOptions}
             placeholder={field?.placeholder}
+            data-testid="protochakra.simpleForm.field"
             {...register(field.name, { required: field?.isRequired })}
           />
-          <FormErrorMessage>{getFormError(errors?.[field.name]?.type)}</FormErrorMessage>
-          {field?.helperText && <FormHelperText>{field.helperText}</FormHelperText>}
+          <FormErrorMessage data-testid="protochakra.simpleForm.error">
+            {getFormError(errors?.[field.name]?.type)}
+          </FormErrorMessage>
+          {field?.helperText && (
+            <FormHelperText data-testid="protochakra.simpleForm.helper">{field.helperText}</FormHelperText>
+          )}
         </FormControl>
       ))}
       <Box>
-        <Button type="submit" size="lg" isLoading={isSubmitting}>
+        <Button
+          type="submit"
+          size="lg"
+          isLoading={isSubmitting}
+          data-testid="protochakra.simpleForm.submit"
+          {...buttonProps}
+        >
           {buttonLabel || 'Submit'}
         </Button>
       </Box>

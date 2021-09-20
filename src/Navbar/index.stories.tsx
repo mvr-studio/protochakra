@@ -39,3 +39,17 @@ WithImageBranding.args = {
     </>
   )
 }
+
+export const WithContainerStyling = Template.bind({})
+WithContainerStyling.args = {
+  branding: <Image src="/mvr-logo.svg" />,
+  children: (
+    <>
+      <Link>About Us</Link>
+      <Link>Blog</Link>
+      <Link>Contact</Link>
+      <Button colorScheme="blue">Dashboard</Button>
+    </>
+  ),
+  boxShadow: '0 0.25rem 0.25rem rgba(0, 0, 0, 0.1)'
+}
