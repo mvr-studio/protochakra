@@ -1,10 +1,14 @@
 {
   "name": "@mvr-studio/protochakra",
-  "version": "0.0.5",
-  "main": "dist/index.js",
-  "type": "module",
+  "version": "0.0.6",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "scripts": {
-    "dist": "rm -rf dist && tsc --noEmit false",
+    "clean": "rm -rf dist",
+    "build:esm": "tsc --noEmit false --outDir dist/esm",
+    "build:cjs": "tsc --noEmit false --module commonjs --outDir dist/cjs",
+    "dist": "yarn clean && yarn build:esm && yarn build:cjs",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
@@ -14,12 +18,13 @@
     "cy:run-ct": "cypress run-ct"
   },
   "peerDependencies": {
-    "react": "^17",
-    "react-dom": "^17",
     "@chakra-ui/react": "^1.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^4",
+    "react": "^17",
+    "react-dom": "^17",
+    "react-scripts": "^4",
     "react-hook-form": "^7"
   },
   "dependencies": {
@@ -72,6 +77,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
     "@cypress/react": "^5.10.0",
     "@cypress/webpack-dev-server": "^1.6.0",
     "@storybook/addon-actions": "^6.3.8",
@@ -82,6 +90,7 @@
     "@storybook/react": "^6.3.8",
     "@storybook/storybook-deployer": "^2.8.10",
     "@testing-library/cypress": "^8.0.1",
+    "cross-env": "^7.0.3",
     "cypress": "^8.4.1",
     "prettier": "^2.4.1",
     "terser-webpack-plugin": "^5.2.4",
