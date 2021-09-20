@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container, BoxProps, SimpleGrid } from '@chakra-ui/react'
 
 type FooterProps = {
-  maxWidth?: string
+  maxWidth?: BoxProps['maxWidth']
   children?: React.ReactNode
   copyrightOwner?: string
 } & BoxProps

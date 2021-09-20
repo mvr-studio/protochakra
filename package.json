@@ -1,6 +1,6 @@
 {
   "name": "@mvr-studio/protochakra",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -12,8 +12,6 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
     "cy:ct": "cypress open-ct",
     "cy:run-ct": "cypress run-ct"
   },

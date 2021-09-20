@@ -1,15 +1,15 @@
 import React from 'react'
-import { Box, Container, SimpleGrid, Heading, Center, Text } from '@chakra-ui/react'
+import { Box, Container, SimpleGrid, Heading, Center, Text, BoxProps } from '@chakra-ui/react'
 
-type FooterProps = {
-  maxWidth?: string
+type HeroProps = {
+  maxWidth?: BoxProps['maxWidth']
   heading?: string
   content?: string
   Addons?: React.ElementType
   children?: React.ReactNode
-}
+} & BoxProps
 
-const Hero = ({ maxWidth, heading, content, Addons, children, ...containerProps }: FooterProps) => {
+const Hero = ({ maxWidth, heading, content, Addons, children, ...containerProps }: HeroProps) => {
   return (
     <Box {...containerProps}>
       <Container maxWidth={maxWidth || 'container.xl'}>

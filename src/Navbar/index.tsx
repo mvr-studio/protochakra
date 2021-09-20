@@ -4,7 +4,7 @@ import { Slant as Hamburger } from 'hamburger-react'
 
 type NavbarProps = {
   branding: React.ReactNode
-  maxWidth?: string
+  maxWidth?: BoxProps['maxWidth']
   children?: React.ReactNode
 } & BoxProps
 

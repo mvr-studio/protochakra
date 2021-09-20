@@ -1,10 +1,11 @@
 import React from 'react';
-declare type FooterProps = {
-    maxWidth?: string;
+import { BoxProps } from '@chakra-ui/react';
+declare type HeroProps = {
+    maxWidth?: BoxProps['maxWidth'];
     heading?: string;
     content?: string;
     Addons?: React.ElementType;
     children?: React.ReactNode;
-};
-declare const Hero: ({ maxWidth, heading, content, Addons, children, ...containerProps }: FooterProps) => JSX.Element;
+} & BoxProps;
+declare const Hero: ({ maxWidth, heading, content, Addons, children, ...containerProps }: HeroProps) => JSX.Element;
 export default Hero;

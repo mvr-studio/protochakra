@@ -49,14 +49,6 @@ interface FormFieldProps extends DefaultInputProps {
   selectOptions?: FieldOptions[]
 }
 
-export interface SimpleFormProps {
-  fields: Field[]
-  onSubmit: (data: Record<string, any>) => void
-  buttonLabel?: string
-  customErrorMessages?: Record<string, string>
-  buttonProps?: ButtonProps
-}
-
 const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest }: FormFieldProps, ref: any) => {
   switch (type) {
     case 'textarea':
@@ -80,6 +72,14 @@ const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest 
       return <Input placeholder={placeholder} type={type} ref={ref} {...rest} />
   }
 })
+
+export interface SimpleFormProps {
+  fields: Field[]
+  onSubmit: (data: Record<string, any>) => void
+  buttonLabel?: string
+  customErrorMessages?: Record<string, string>
+  buttonProps?: ButtonProps
+}
 
 const SimpleForm = ({ fields, onSubmit, buttonLabel, buttonProps, customErrorMessages }: SimpleFormProps) => {
   const {
