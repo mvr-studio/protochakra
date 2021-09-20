@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Box } from '@chakra-ui/react'
 
-import Stepper from 'Stepper'
+import Stepper from './'
 
 export default {
   title: 'Components/Stepper',

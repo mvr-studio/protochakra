@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Text, Stack, Link, HStack, Icon, Image } from '@chakra-ui/react'
 import { RiFacebookCircleLine, RiInstagramLine, RiLinkedinBoxLine, RiYoutubeLine } from 'react-icons/ri'
 
-import Footer from 'Footer'
+import Footer from './'
 
 export default {
   title: 'Components/Footer',

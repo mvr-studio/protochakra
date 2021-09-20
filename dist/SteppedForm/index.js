@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
 import { Box, Text, Heading, HStack, IconButton, Icon } from '@chakra-ui/react';
-import SimpleForm from 'SimpleForm';
-import Stepper from 'Stepper';
+import SimpleForm from '../SimpleForm';
+import Stepper from '../Stepper';
 import { FiArrowLeft } from 'react-icons/fi';
 var SteppedForm = function (_a) {
     var _b, _c, _d;

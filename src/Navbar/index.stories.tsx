@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Link, Button, Image } from '@chakra-ui/react'
 
-import Navbar from 'Navbar'
+import Navbar from './'
 
 export default {
   title: 'Components/Navbar',

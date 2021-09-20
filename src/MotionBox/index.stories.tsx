@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import MotionBox from 'MotionBox'
+import MotionBox from './'
 
 export default {
   title: 'Components/MotionBox',

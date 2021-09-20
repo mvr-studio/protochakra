@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Text, Heading, HStack, IconButton, Icon, ButtonProps } from '@chakra-ui/react'
-import SimpleForm, { Field } from 'SimpleForm'
-import Stepper from 'Stepper'
+import SimpleForm, { Field } from '../SimpleForm'
+import Stepper from '../Stepper'
 import { FiArrowLeft } from 'react-icons/fi'
 
 type Step = {

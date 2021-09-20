@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Box } from '@chakra-ui/react'
 
-import SimpleForm from 'SimpleForm'
+import SimpleForm from './'
 
 export default {
   title: 'Components/SimpleForm',
