@@ -10,7 +10,7 @@ type Step = {
   fields: Field[]
 }
 
-interface SteppedFormProps {
+export interface SteppedFormProps {
   steps: Step[]
   onFormSubmit: (data: Record<string, any>) => void
   customErrorMessages?: Record<string, string>

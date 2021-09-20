@@ -1,5 +1,5 @@
 /// <reference types="react" />
-interface StepperProps {
+export interface StepperProps {
     steps: string[];
     currentStep: number;
 }

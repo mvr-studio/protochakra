@@ -1,7 +1,17 @@
-export { default as Footer } from './Footer';
-export { default as Hero } from './Hero';
-export { default as MotionBox } from './MotionBox';
-export { default as Navbar } from './Navbar';
-export { default as SimpleForm } from './SimpleForm';
-export { default as SteppedForm } from './SteppedForm';
-export { default as Stepper } from './Stepper';
+import Footer from './Footer';
+import Hero from './Hero';
+import MotionBox from './MotionBox';
+import Navbar from './Navbar';
+import SimpleForm from './SimpleForm';
+import SteppedForm from './SteppedForm';
+import Stepper from './Stepper';
+var ProtoChakra = {
+    Footer: Footer,
+    Hero: Hero,
+    MotionBox: MotionBox,
+    Navbar: Navbar,
+    SimpleForm: SimpleForm,
+    SteppedForm: SteppedForm,
+    Stepper: Stepper
+};
+export default ProtoChakra;

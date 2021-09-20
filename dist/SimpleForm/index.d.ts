@@ -17,7 +17,7 @@ export declare type Field = {
     selectOptions?: FieldOptions[];
     placeholder?: string;
 };
-interface SimpleFormProps {
+export interface SimpleFormProps {
     fields: Field[];
     onSubmit: (data: Record<string, any>) => void;
     buttonLabel?: string;

@@ -27,7 +27,7 @@ const Line = () => {
   return <Box flex={1} height="1px" width="100%" backgroundColor="gray.300" marginTop="1rem" />
 }
 
-interface StepperProps {
+export interface StepperProps {
   steps: string[]
   currentStep: number
 }
