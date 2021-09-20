@@ -1,7 +1,26 @@
 {
   "name": "protochakra",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "dist": "rm -rf dist && tsc --noEmit false",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:ct": "cypress open-ct",
+    "cy:run-ct": "cypress run-ct"
+  },
+  "peerDependencies": {
+    "react": "^17",
+    "react-dom": "^17",
+    "@chakra-ui/react": "^1.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4",
+    "react-hook-form": "^7"
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11",
@@ -22,19 +41,6 @@
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "deploy-storybook": "storybook-to-ghpages",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:ct": "cypress open-ct",
-    "cy:run-ct": "cypress run-ct"
   },
   "eslintConfig": {
     "extends": [
