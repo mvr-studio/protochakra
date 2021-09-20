@@ -6,14 +6,4 @@ import SimpleForm from './SimpleForm'
 import SteppedForm from './SteppedForm'
 import Stepper from './Stepper'
 
-const ProtoChakra = {
-  Footer,
-  Hero,
-  MotionBox,
-  Navbar,
-  SimpleForm,
-  SteppedForm,
-  Stepper
-}
-
-export default ProtoChakra
+export { Footer, Hero, MotionBox, Navbar, SimpleForm, SteppedForm, Stepper }

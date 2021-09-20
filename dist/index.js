@@ -5,13 +5,4 @@ import Navbar from './Navbar';
 import SimpleForm from './SimpleForm';
 import SteppedForm from './SteppedForm';
 import Stepper from './Stepper';
-var ProtoChakra = {
-    Footer: Footer,
-    Hero: Hero,
-    MotionBox: MotionBox,
-    Navbar: Navbar,
-    SimpleForm: SimpleForm,
-    SteppedForm: SteppedForm,
-    Stepper: Stepper
-};
-export default ProtoChakra;
+export { Footer, Hero, MotionBox, Navbar, SimpleForm, SteppedForm, Stepper };
