@@ -1,7 +1,8 @@
 {
   "name": "@mvr-studio/protochakra",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "dist": "rm -rf dist && tsc --noEmit false",
     "storybook": "start-storybook -p 6006 -s public",
