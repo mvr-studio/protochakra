@@ -5,7 +5,7 @@ import { Link, Button, Image } from '@chakra-ui/react'
 import Navbar from './'
 
 export default {
-  title: 'Components/Navbar',
+  title: 'Layout/Navbar',
   component: Navbar,
   argTypes: {
     maxWidth: { control: 'select', options: ['container.sm', 'container.md', 'container.lg', 'container.xl'] }

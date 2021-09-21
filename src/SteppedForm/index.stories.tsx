@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/react'
 import SteppedForm from './'
 
 export default {
-  title: 'Components/SteppedForm',
+  title: 'Forms/SteppedForm',
   component: SteppedForm
 } as ComponentMeta<typeof SteppedForm>
 

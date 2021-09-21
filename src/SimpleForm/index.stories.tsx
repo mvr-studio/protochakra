@@ -5,7 +5,7 @@ import { Box } from '@chakra-ui/react'
 import SimpleForm from './'
 
 export default {
-  title: 'Components/SimpleForm',
+  title: 'Forms/SimpleForm',
   component: SimpleForm
 } as ComponentMeta<typeof SimpleForm>
 

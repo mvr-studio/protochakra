@@ -5,7 +5,7 @@ import { Button, Image } from '@chakra-ui/react'
 import Hero from './'
 
 export default {
-  title: 'Components/Hero',
+  title: 'Layout/Hero',
   component: Hero,
   argTypes: {
     maxWidth: { control: 'select', options: ['container.sm', 'container.md', 'container.lg', 'container.xl'] }

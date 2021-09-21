@@ -3,7 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Stepper = exports.SteppedForm = exports.SimpleForm = exports.Navbar = exports.MotionBox = exports.Hero = exports.Footer = void 0;
+exports.Stepper = exports.SteppedForm = exports.SimpleForm = exports.Navbar = exports.MotionBox = exports.Hero = exports.Footer = exports.Card = void 0;
+var Card_1 = __importDefault(require("./Card"));
+exports.Card = Card_1.default;
 var Footer_1 = __importDefault(require("./Footer"));
 exports.Footer = Footer_1.default;
 var Hero_1 = __importDefault(require("./Hero"));

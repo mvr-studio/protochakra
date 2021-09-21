@@ -26,5 +26,7 @@ Runs Cypress Component Testing in headless mode, same as in Continuous Integrati
 ## Learn More
 
 [ProtoChakra Docs & Storybook](https://protochakra-docs.mvr.studio/)
+
 [Website (made with ProtoChakra)](https://protochakra.mvr.studio/)
+
 [Maintained by MVR Studio](https://mvr.studio/)

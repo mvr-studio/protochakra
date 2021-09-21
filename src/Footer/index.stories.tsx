@@ -6,7 +6,7 @@ import { RiFacebookCircleLine, RiInstagramLine, RiLinkedinBoxLine, RiYoutubeLine
 import Footer from './'
 
 export default {
-  title: 'Components/Footer',
+  title: 'Layout/Footer',
   component: Footer,
   argTypes: {
     maxWidth: { control: 'select', options: ['container.sm', 'container.md', 'container.lg', 'container.xl'] }
