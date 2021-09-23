@@ -1,7 +1,7 @@
 import React from 'react'
 import { ChakraProvider, theme } from '@chakra-ui/react'
 import { mount } from '@cypress/react'
-import Hero from './'
+import Hero from '.'
 
 describe('Hero', () => {
   it('Renders initial', () => {

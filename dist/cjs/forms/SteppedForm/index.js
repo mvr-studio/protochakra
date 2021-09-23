@@ -18,7 +18,7 @@ var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = require("react");
 var react_2 = require("@chakra-ui/react");
 var SimpleForm_1 = __importDefault(require("../SimpleForm"));
-var Stepper_1 = __importDefault(require("../Stepper"));
+var Stepper_1 = __importDefault(require("../../components/Stepper"));
 var fi_1 = require("react-icons/fi");
 var SteppedForm = function (_a) {
     var _b, _c, _d;

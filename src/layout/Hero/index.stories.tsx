@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Button, Image } from '@chakra-ui/react'
 
-import Hero from './'
+import Hero from '.'
 
 export default {
   title: 'Layout/Hero',
