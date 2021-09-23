@@ -13,3 +13,4 @@ jobs:
         with:
           install: true
           command: yarn cy:run-ct
+          install-command: yarn --frozen-lockfile
