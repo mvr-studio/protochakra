@@ -1,7 +1,6 @@
 import React from 'react'
 import { ChakraProvider, theme } from '@chakra-ui/react'
 import { mount } from '@cypress/react'
-import { Box } from '@chakra-ui/react'
 import BottomNavigation from './'
 
 describe('BottomNavigation', () => {

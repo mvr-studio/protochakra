@@ -1,16 +1,22 @@
 import React from 'react'
-import { ChakraProvider, theme } from '@chakra-ui/react'
+import { ChakraProvider, theme, Box } from '@chakra-ui/react'
 import { mount } from '@cypress/react'
-import { Box } from '@chakra-ui/react'
 import Hidden from './'
 
-describe('Footer', () => {
+describe('Hidden', () => {
   it('Renders initial', () => {
     mount(
       <ChakraProvider theme={theme}>
-        <Hidden above="md">Hidden above MD</Hidden>
-        <Hidden below="md">Hidden below MD</Hidden>
+        <Box data-testid="spec.visible">
+          <Hidden above="md">Visible Above MD</Hidden>
+        </Box>
+        <Box data-testid="spec.hidden">
+          <Hidden below="lg">Visible Below LG</Hidden>
+        </Box>
       </ChakraProvider>
     )
+    cy.findByTestId('spec.visible').should('be.visible')
+    cy.findByTestId('spec.visible').contains('Visible')
+    cy.findByTestId('spec.hidden').should('not.be.visible')
   })
 })

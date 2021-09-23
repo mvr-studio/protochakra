@@ -1,0 +1,15 @@
+name: Run Component Tests
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Component tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: true
+          command: yarn cy:run-ct
