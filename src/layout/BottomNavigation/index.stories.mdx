@@ -1,0 +1,94 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box } from '@chakra-ui/react'
+import BottomNavigation from './'
+import { RiHome2Line, RiRoadsterLine, RiFileCopy2Line, RiUser3Line } from 'react-icons/ri'
+
+<Meta title="Layout/Bottom Navigation" component={BottomNavigation} />
+
+# Bottom Navigation
+
+Bottom Navigation makes it easy to create a mobile navigation, for example for mobile Progressive Web Apps.
+
+```js
+import { BottomNavigation } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+<Canvas>
+  <Story name="Basic Example">
+    <BottomNavigation
+      tabs={[
+        {
+          label: 'Home',
+          pathname: '/',
+          Icon: RiHome2Line
+        },
+        {
+          label: 'My Vehicles',
+          pathname: '/vehicles',
+          Icon: RiRoadsterLine
+        },
+        {
+          label: 'Invoices',
+          pathname: '/invoices',
+          Icon: RiFileCopy2Line
+        },
+        {
+          label: 'Profile',
+          pathname: '/profile',
+          Icon: RiUser3Line
+        }
+      ]}
+      onChange={(pathname) => console.log('CHANGE_PATH', pathname)}
+      containerProps={{
+        position: 'sticky',
+        bottom: 0
+      }}
+    />
+  </Story>
+</Canvas>
+
+## Styling Applied
+
+<Canvas>
+  <Story name="Styling Applied">
+    <BottomNavigation
+      tabs={[
+        {
+          label: 'Home',
+          pathname: '/',
+          Icon: RiHome2Line
+        },
+        {
+          label: 'My Vehicles',
+          pathname: '/vehicles',
+          Icon: RiRoadsterLine
+        },
+        {
+          label: 'Invoices',
+          pathname: '/invoices',
+          Icon: RiFileCopy2Line
+        },
+        {
+          label: 'Profile',
+          pathname: '/profile',
+          Icon: RiUser3Line
+        }
+      ]}
+      onChange={(pathname) => console.log('CHANGE_PATH', pathname)}
+      containerProps={{
+        position: 'sticky',
+        bottom: 0,
+        backgroundColor: 'purple.600'
+      }}
+      tabProps={{
+        color: 'white'
+      }}
+    />
+  </Story>
+</Canvas>
+
+## Properties
+
+<ArgsTable component={BottomNavigation} />

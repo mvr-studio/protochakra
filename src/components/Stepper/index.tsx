@@ -1,20 +1,24 @@
 import React from 'react'
-import { Center, Icon, Flex, Text, Box } from '@chakra-ui/react'
+import { Center, Icon, Flex, Text, Box, BoxProps } from '@chakra-ui/react'
 import { FiCheck } from 'react-icons/fi'
 
-interface IndicatorProps {
+type Color = BoxProps['color']
+
+type IndicatorProps = {
   stepNumber: number
   isActive: boolean
   isCurrent: boolean
+  activeColor?: Color
+  inactiveColor?: Color
 }
 
-const Indicator = ({ stepNumber, isActive, isCurrent }: IndicatorProps) => {
+const Indicator = ({ stepNumber, isActive, isCurrent, activeColor, inactiveColor }: IndicatorProps) => {
   return (
     <Center
       height="2rem"
       width="2rem"
       borderRadius="50%"
-      backgroundColor={isActive ? 'blue.500' : 'gray.500'}
+      backgroundColor={isActive ? activeColor : inactiveColor}
       color="white"
       data-testid="protochakra.stepper.indicator"
     >
@@ -30,9 +34,11 @@ const Line = () => {
 export interface StepperProps {
   steps: string[]
   currentStep: number
+  activeColor?: Color
+  inactiveColor?: Color
 }
 
-const Stepper = ({ steps, currentStep }: StepperProps) => {
+const Stepper = ({ steps, currentStep, activeColor = 'blue.600', inactiveColor = 'gray.500' }: StepperProps) => {
   const isFirstStep = (i: number) => i !== 0
   const isLastStep = (i: number) => i !== steps.length - 1
   const isActive = (i: number) => i <= currentStep
@@ -48,8 +54,15 @@ const Stepper = ({ steps, currentStep }: StepperProps) => {
             data-is-active={isActive(i)}
             data-is-current={i === currentStep}
           >
-            <Indicator key={i} stepNumber={i + 1} isActive={isActive(i)} isCurrent={i === currentStep} />
-            <Text fontSize="14px" marginTop="0.25rem" color={isActive(i) ? 'blue.600' : 'gray.500'}>
+            <Indicator
+              key={i}
+              stepNumber={i + 1}
+              isActive={isActive(i)}
+              isCurrent={i === currentStep}
+              activeColor={activeColor}
+              inactiveColor={inactiveColor}
+            />
+            <Text fontSize="14px" marginTop="0.25rem" color={isActive(i) ? activeColor : inactiveColor}>
               {step}
             </Text>
           </Center>

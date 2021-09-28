@@ -15,17 +15,17 @@ var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = require("@chakra-ui/react");
 var fi_1 = require("react-icons/fi");
 var Indicator = function (_a) {
-    var stepNumber = _a.stepNumber, isActive = _a.isActive, isCurrent = _a.isCurrent;
-    return ((0, jsx_runtime_1.jsx)(react_1.Center, __assign({ height: "2rem", width: "2rem", borderRadius: "50%", backgroundColor: isActive ? 'blue.500' : 'gray.500', color: "white", "data-testid": "protochakra.stepper.indicator" }, { children: isActive ? isCurrent ? stepNumber : (0, jsx_runtime_1.jsx)(react_1.Icon, { as: fi_1.FiCheck }, void 0) : stepNumber }), void 0));
+    var stepNumber = _a.stepNumber, isActive = _a.isActive, isCurrent = _a.isCurrent, activeColor = _a.activeColor, inactiveColor = _a.inactiveColor;
+    return ((0, jsx_runtime_1.jsx)(react_1.Center, __assign({ height: "2rem", width: "2rem", borderRadius: "50%", backgroundColor: isActive ? activeColor : inactiveColor, color: "white", "data-testid": "protochakra.stepper.indicator" }, { children: isActive ? isCurrent ? stepNumber : (0, jsx_runtime_1.jsx)(react_1.Icon, { as: fi_1.FiCheck }, void 0) : stepNumber }), void 0));
 };
 var Line = function () {
     return (0, jsx_runtime_1.jsx)(react_1.Box, { flex: 1, height: "1px", width: "100%", backgroundColor: "gray.300", marginTop: "1rem" }, void 0);
 };
 var Stepper = function (_a) {
-    var steps = _a.steps, currentStep = _a.currentStep;
+    var steps = _a.steps, currentStep = _a.currentStep, _b = _a.activeColor, activeColor = _b === void 0 ? 'blue.600' : _b, _c = _a.inactiveColor, inactiveColor = _c === void 0 ? 'gray.500' : _c;
     var isFirstStep = function (i) { return i !== 0; };
     var isLastStep = function (i) { return i !== steps.length - 1; };
     var isActive = function (i) { return i <= currentStep; };
-    return ((0, jsx_runtime_1.jsx)(react_1.Flex, __assign({ justify: "space-between", "data-testid": "protochakra.stepper", "data-current-step": currentStep }, { children: steps.map(function (step, i) { return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [isFirstStep(i) && (0, jsx_runtime_1.jsx)(Line, {}, void 0), (0, jsx_runtime_1.jsxs)(react_1.Center, __assign({ flexDirection: "column", "data-testid": "protochakra.step", "data-is-active": isActive(i), "data-is-current": i === currentStep }, { children: [(0, jsx_runtime_1.jsx)(Indicator, { stepNumber: i + 1, isActive: isActive(i), isCurrent: i === currentStep }, i), (0, jsx_runtime_1.jsx)(react_1.Text, __assign({ fontSize: "14px", marginTop: "0.25rem", color: isActive(i) ? 'blue.600' : 'gray.500' }, { children: step }), void 0)] }), void 0), isLastStep(i) && (0, jsx_runtime_1.jsx)(Line, {}, void 0)] }, void 0)); }) }), void 0));
+    return ((0, jsx_runtime_1.jsx)(react_1.Flex, __assign({ justify: "space-between", "data-testid": "protochakra.stepper", "data-current-step": currentStep }, { children: steps.map(function (step, i) { return ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [isFirstStep(i) && (0, jsx_runtime_1.jsx)(Line, {}, void 0), (0, jsx_runtime_1.jsxs)(react_1.Center, __assign({ flexDirection: "column", "data-testid": "protochakra.step", "data-is-active": isActive(i), "data-is-current": i === currentStep }, { children: [(0, jsx_runtime_1.jsx)(Indicator, { stepNumber: i + 1, isActive: isActive(i), isCurrent: i === currentStep, activeColor: activeColor, inactiveColor: inactiveColor }, i), (0, jsx_runtime_1.jsx)(react_1.Text, __assign({ fontSize: "14px", marginTop: "0.25rem", color: isActive(i) ? activeColor : inactiveColor }, { children: step }), void 0)] }), void 0), isLastStep(i) && (0, jsx_runtime_1.jsx)(Line, {}, void 0)] }, void 0)); }) }), void 0));
 };
 exports.default = Stepper;

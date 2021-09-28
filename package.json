@@ -1,6 +1,10 @@
 {
   "name": "@mvr-studio/protochakra",
   "version": "0.0.9",
+  "license": "MIT",
+  "homepage": "https://github.com/mvr-studio/protochakra",
+  "bugs": "https://github.com/mvr-studio/protochakra/issues",
+  "author": "Tomasz Marciniak <tomek@mvr.studio>",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -13,18 +17,19 @@
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages",
     "cy:ct": "cypress open-ct",
-    "cy:run-ct": "cypress run-ct"
+    "cy:run-ct": "cypress run-ct",
+    "prepare": "husky install"
   },
   "peerDependencies": {
     "@chakra-ui/react": "^1.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^4",
+    "polished": "^4",
     "react": "^17",
     "react-dom": "^17",
     "react-hook-form": "^7",
-    "react-scripts": "^4",
-    "polished": "^4"
+    "react-scripts": "^4"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.7",
@@ -90,7 +95,9 @@
     "@testing-library/cypress": "^8.0.1",
     "cross-env": "^7.0.3",
     "cypress": "^8.4.1",
+    "husky": "^7.0.2",
     "prettier": "^2.4.1",
+    "storybook-dark-mode": "^1.0.8",
     "terser-webpack-plugin": "^5.2.4",
     "webpack-dev-server": "^4.2.1"
   }

@@ -1,0 +1,72 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box, Image } from '@chakra-ui/react'
+import Navbar from './'
+
+<Meta title="Layout/Navbar" component={Navbar} />
+
+# Navbar
+
+Navbar makes it really quick to add a mobile friendly, responsive and expandable navigation bar to your site or app.
+
+```js
+import { Navbar } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+<Canvas>
+  <Story name="Basic Example">
+    <Navbar
+      branding="MVR"
+      children={
+        <>
+          <Link>About Us</Link>
+          <Link>Blog</Link>
+          <Link>Contact</Link>
+          <Button colorScheme="blue">Dashboard</Button>
+        </>
+      }
+    />
+  </Story>
+</Canvas>
+
+## Styling Applied
+
+<Canvas>
+  <Story name="Image Branding">
+    <Navbar
+      branding={<Image src="/mvr-logo.svg" />}
+      children={
+        <>
+          <Link>About Us</Link>
+          <Link>Blog</Link>
+          <Link>Contact</Link>
+          <Button colorScheme="blue">Dashboard</Button>
+        </>
+      }
+    />
+  </Story>
+</Canvas>
+
+## Container Styling
+
+<Canvas>
+  <Story name="Container Styling">
+    <Navbar
+      branding={<Image src="/mvr-logo.svg" />}
+      children={
+        <>
+          <Link>About Us</Link>
+          <Link>Blog</Link>
+          <Link>Contact</Link>
+          <Button colorScheme="blue">Dashboard</Button>
+        </>
+      }
+      boxShadow="0 0.25rem 0.25rem rgba(0, 0, 0, 0.1)"
+    />
+  </Story>
+</Canvas>
+
+## Properties
+
+<ArgsTable component={Navbar} />

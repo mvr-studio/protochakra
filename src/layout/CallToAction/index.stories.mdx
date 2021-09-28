@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Button } from '@chakra-ui/react'
+import CallToAction from './'
+
+<Meta title="Layout/Call To Action" component={CallToAction} />
+
+# Call To Action
+
+Call To Action urges users to take some specific actions while scrolling down your page.
+
+```js
+import { CallToAction } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+<Canvas>
+  <Story name="Basic Example">
+    <CallToAction heading="Don't wait any longer" description="Create your free account now.">
+      <Button>Create Account</Button>
+    </CallToAction>
+  </Story>
+</Canvas>
+
+## Properties
+
+<ArgsTable component={CallToAction} />

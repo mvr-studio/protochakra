@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box } from '@chakra-ui/react'
+import Stepper from './'
+
+<Meta title="Components/Stepper" component={Stepper} />
+
+# Stepper
+
+Stepper is a progress indicative component that works well for wizards and multi step forms.
+
+```js
+import { Stepper } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+To start, it takes up only two properties - `steps` and `currentStep`.
+
+<Canvas>
+  <Story name="Basic Example">
+    <Stepper steps={['Personal Details', 'Agreements', 'Confirmation']} currentStep={1} />
+  </Story>
+</Canvas>
+
+## Custom Colors
+
+To manipulate colors of Stepper use `activeColor` and `inactiveColor` properties.
+
+<Canvas>
+  <Story name="Custom Colors">
+    <Stepper
+      steps={['Personal Details', 'Agreements', 'Confirmation']}
+      currentStep={1}
+      activeColor="teal.500"
+      inactiveColor="gray.600"
+    />
+  </Story>
+</Canvas>
+
+## Properties
+
+<ArgsTable component={Stepper} />

@@ -1,0 +1,81 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box } from '@chakra-ui/react'
+import SimpleForm from './'
+
+<Meta title="Forms/Simple Form" component={SimpleForm} />
+
+# Simple Form
+
+Simple Form is a component for creating declarative forms with Chakra UI fast.
+
+```js
+import { SimpleForm } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+<Canvas>
+  <Story name="Basic Example">
+    <SimpleForm
+      fields={[
+        { label: 'Email Address', name: 'email', type: 'email', isRequired: true, placeholder: 'your@email.com' },
+        { label: 'Message', name: 'message', type: 'textarea', isRequired: true, helperText: 'Max 255 characters' },
+        {
+          label: 'Preferred Contact Way',
+          name: 'preferred_contact',
+          type: 'select',
+          selectOptions: [
+            { label: 'Email', value: 'email' },
+            { label: 'Phone', value: 'phone' }
+          ]
+        },
+        {
+          name: 'marketing_agreement',
+          placeholder: 'I agree to...',
+          type: 'checkbox',
+          isRequired: true
+        }
+      ]}
+      onSubmit={(data) => console.dir(data)}
+    />
+  </Story>
+</Canvas>
+
+## Custom Error Messages
+
+Simple Form has default validation messages in English. However, they are easily customisable by passing `customErrorMessages`.
+
+<Canvas>
+  <Story name="Custom Error Messages">
+    <SimpleForm
+      fields={[
+        { label: 'Email Address', name: 'email', type: 'email', isRequired: true, placeholder: 'your@email.com' }
+      ]}
+      onSubmit={(data) => console.dir(data)}
+      customErrorMessages={{ required: 'Your custom message' }}
+    />
+  </Story>
+</Canvas>
+
+## Button Properties
+
+To customize form's button, there are 2 properties - `buttonLabel` and `buttonProps`.
+
+<Canvas>
+  <Story name="Button Properties">
+    <SimpleForm
+      fields={[
+        { label: 'Email Address', name: 'email', type: 'email', isRequired: true, placeholder: 'your@email.com' }
+      ]}
+      onSubmit={(data) => console.dir(data)}
+      buttonLabel="Next"
+      buttonProps={{
+        colorScheme: 'teal'
+      }}
+    />
+  </Story>
+</Canvas>
+
+## Properties
+
+<ArgsTable component={SimpleForm} />

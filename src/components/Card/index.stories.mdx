@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box, AspectRatio, Image, Heading, Text } from '@chakra-ui/react'
+import Card, { CARD_DEFAULTS } from './'
+
+<Meta title="Components/Card" component={Card} />
+
+# Card
+
+Card component provides an easy way to compose the card shadow without the need to override whole `boxShadow` property.
+
+Properties that compose to `boxShadow`:
+
+- shadowOffsetX
+- shadowOffsetY
+- blurRadius
+- spreadRadius
+- shadowColor
+- shadowAlpha
+
+However if you'd like to stick to `boxShadow` overriding as a whole property, then you can simply pass it as an argument or theme property.
+
+```js
+import { Card } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+<Canvas>
+  <Story name="Basic">
+    <Card maxWidth="32rem" padding={0}>
+      <AspectRatio ratio={3}>
+        <Image
+          src="https://picsum.photos/id/866/400/1200"
+          objectFit="cover"
+          borderTopLeftRadius="0.25rem"
+          borderTopRightRadius="0.25rem"
+        />
+      </AspectRatio>
+      <Box padding="1rem">
+        <Heading size="md">Example heading</Heading>
+        <Text marginTop="0.5rem">Example description</Text>
+      </Box>
+    </Card>
+  </Story>
+</Canvas>
+
+## Manipulating Shadow
+
+<Canvas>
+  <Story name="Manipulating Shadow">
+    <Card
+      maxWidth="32rem"
+      padding={0}
+      _hover={{ boxShadow: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.15)' }}
+      transition="box-shadow 0.3s ease-out"
+      cursor="pointer"
+    >
+      <AspectRatio ratio={3}>
+        <Image
+          src="https://picsum.photos/id/865/400/1200"
+          objectFit="cover"
+          borderTopLeftRadius="0.25rem"
+          borderTopRightRadius="0.25rem"
+        />
+      </AspectRatio>
+      <Box padding="1rem">
+        <Heading size="md">Example heading</Heading>
+        <Text marginTop="0.5rem">Example description</Text>
+      </Box>
+    </Card>
+  </Story>
+</Canvas>
+
+## Properties
+
+<ArgsTable component={Card} />

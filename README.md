@@ -1,6 +1,10 @@
 # ProtoChakra
 
-Low Code & opinionated Chakra UI components library created for Rapid Development with React.
+![Tests](https://github.com/mvr-studio/protochakra/actions/workflows/tests.yml/badge.svg)
+
+Not production ready yet
+
+Less Code & opinionated Chakra UI components library created for Rapid Development with React.
 Meant to speed the development process of easy UIs up.
 
 ## Available Scripts
