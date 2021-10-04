@@ -13,9 +13,9 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = require("@chakra-ui/react");
-var ri_1 = require("react-icons/ri");
+var icons_1 = require("@chakra-ui/icons");
 var BottomNavigation = function (_a) {
     var tabs = _a.tabs, onChange = _a.onChange, padding = _a.padding, containerProps = _a.containerProps, tabProps = _a.tabProps;
-    return ((0, jsx_runtime_1.jsx)(react_1.Box, __assign({ padding: '0.5rem 1rem 0.75rem' || padding, "data-testid": "protochakra.bottomNavigation" }, containerProps, { children: (0, jsx_runtime_1.jsx)(react_1.HStack, __assign({ justify: "space-around" }, { children: tabs.map(function (tab) { return ((0, jsx_runtime_1.jsxs)(react_1.Stack, __assign({ justifyContent: "center", alignItems: "center", cursor: "pointer", onClick: function () { return (tab.onChangeOverride ? tab.onChangeOverride(tab.pathname) : onChange(tab.pathname)); } }, tabProps, { children: [(0, jsx_runtime_1.jsx)(react_1.Icon, { as: tab.Icon || ri_1.RiQuestionLine, boxSize: "1.5rem" }, void 0), (0, jsx_runtime_1.jsx)(react_1.Text, __assign({ fontSize: "0.75rem", lineHeight: 0.5 }, { children: tab.label }), void 0)] }), void 0)); }) }), void 0) }), void 0));
+    return ((0, jsx_runtime_1.jsx)(react_1.Box, __assign({ padding: '0.5rem 1rem 0.75rem' || padding, "data-testid": "protochakra.bottomNavigation" }, containerProps, { children: (0, jsx_runtime_1.jsx)(react_1.HStack, __assign({ justify: "space-around" }, { children: tabs.map(function (tab) { return ((0, jsx_runtime_1.jsxs)(react_1.Stack, __assign({ justifyContent: "center", alignItems: "center", cursor: "pointer", onClick: function () { return (tab.onChangeOverride ? tab.onChangeOverride(tab.pathname) : onChange(tab.pathname)); } }, tabProps, { children: [(0, jsx_runtime_1.jsx)(react_1.Icon, { as: tab.Icon || icons_1.QuestionOutlineIcon, boxSize: "1.5rem" }, void 0), (0, jsx_runtime_1.jsx)(react_1.Text, __assign({ fontSize: "0.75rem", lineHeight: 0.5 }, { children: tab.label }), void 0)] }), void 0)); }) }), void 0) }), void 0));
 };
 exports.default = BottomNavigation;

@@ -1,3 +1,4 @@
 import Card from './Card';
 import Stepper from './Stepper';
-export { Card, Stepper };
+import DataTable from './DataTable';
+export { Card, Stepper, DataTable };

@@ -13,10 +13,10 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var jsx_runtime_1 = require("react/jsx-runtime");
 var react_1 = require("@chakra-ui/react");
-var fi_1 = require("react-icons/fi");
+var icons_1 = require("@chakra-ui/icons");
 var Indicator = function (_a) {
     var stepNumber = _a.stepNumber, isActive = _a.isActive, isCurrent = _a.isCurrent, activeColor = _a.activeColor, inactiveColor = _a.inactiveColor;
-    return ((0, jsx_runtime_1.jsx)(react_1.Center, __assign({ height: "2rem", width: "2rem", borderRadius: "50%", backgroundColor: isActive ? activeColor : inactiveColor, color: "white", "data-testid": "protochakra.stepper.indicator" }, { children: isActive ? isCurrent ? stepNumber : (0, jsx_runtime_1.jsx)(react_1.Icon, { as: fi_1.FiCheck }, void 0) : stepNumber }), void 0));
+    return ((0, jsx_runtime_1.jsx)(react_1.Center, __assign({ height: "2rem", width: "2rem", borderRadius: "50%", backgroundColor: isActive ? activeColor : inactiveColor, color: "white", "data-testid": "protochakra.stepper.indicator" }, { children: isActive ? isCurrent ? stepNumber : (0, jsx_runtime_1.jsx)(react_1.Icon, { as: icons_1.CheckIcon }, void 0) : stepNumber }), void 0));
 };
 var Line = function () {
     return (0, jsx_runtime_1.jsx)(react_1.Box, { flex: 1, height: "1px", width: "100%", backgroundColor: "gray.300", marginTop: "1rem" }, void 0);

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Center, Icon, Flex, Text, Box, BoxProps } from '@chakra-ui/react'
-import { FiCheck } from 'react-icons/fi'
+import { CheckIcon } from '@chakra-ui/icons'
 
 type Color = BoxProps['color']
 
@@ -22,7 +22,7 @@ const Indicator = ({ stepNumber, isActive, isCurrent, activeColor, inactiveColor
       color="white"
       data-testid="protochakra.stepper.indicator"
     >
-      {isActive ? isCurrent ? stepNumber : <Icon as={FiCheck} /> : stepNumber}
+      {isActive ? isCurrent ? stepNumber : <Icon as={CheckIcon} /> : stepNumber}
     </Center>
   )
 }

@@ -19,7 +19,7 @@ var react_1 = require("react");
 var react_2 = require("@chakra-ui/react");
 var SimpleForm_1 = __importDefault(require("../SimpleForm"));
 var Stepper_1 = __importDefault(require("../../components/Stepper"));
-var fi_1 = require("react-icons/fi");
+var icons_1 = require("@chakra-ui/icons");
 var SteppedForm = function (_a) {
     var _b, _c, _d;
     var steps = _a.steps, customErrorMessages = _a.customErrorMessages, buttonProps = _a.buttonProps, onFormSubmit = _a.onFormSubmit;
@@ -41,6 +41,6 @@ var SteppedForm = function (_a) {
             setNextStep();
         }
     };
-    return ((0, jsx_runtime_1.jsxs)(react_2.Box, { children: [(0, jsx_runtime_1.jsx)(Stepper_1.default, { steps: stepperSteps, currentStep: currentStep }, void 0), (0, jsx_runtime_1.jsxs)(react_2.HStack, __assign({ marginTop: "1rem" }, { children: [!isFirstStep && ((0, jsx_runtime_1.jsx)(react_2.IconButton, __assign({ "aria-label": "Go back", variant: "ghost", onClick: setPreviousStep }, { children: (0, jsx_runtime_1.jsx)(react_2.Icon, { as: fi_1.FiArrowLeft }, void 0) }), void 0)), (0, jsx_runtime_1.jsx)(react_2.Heading, __assign({ size: "lg" }, { children: currentStepName }), void 0)] }), void 0), currentStepDescription && (0, jsx_runtime_1.jsx)(react_2.Text, __assign({ marginTop: "1rem" }, { children: currentStepDescription }), void 0), (0, jsx_runtime_1.jsx)(react_2.Box, __assign({ marginTop: "1rem" }, { children: (0, jsx_runtime_1.jsx)(SimpleForm_1.default, { fields: currentStepFields, onSubmit: onSubmit, buttonLabel: buttonLabel, customErrorMessages: customErrorMessages, buttonProps: buttonProps }, void 0) }), void 0)] }, void 0));
+    return ((0, jsx_runtime_1.jsxs)(react_2.Box, { children: [(0, jsx_runtime_1.jsx)(Stepper_1.default, { steps: stepperSteps, currentStep: currentStep }, void 0), (0, jsx_runtime_1.jsxs)(react_2.HStack, __assign({ marginTop: "1rem" }, { children: [!isFirstStep && ((0, jsx_runtime_1.jsx)(react_2.IconButton, __assign({ "aria-label": "Go back", variant: "ghost", onClick: setPreviousStep }, { children: (0, jsx_runtime_1.jsx)(react_2.Icon, { as: icons_1.ArrowBackIcon }, void 0) }), void 0)), (0, jsx_runtime_1.jsx)(react_2.Heading, __assign({ size: "lg" }, { children: currentStepName }), void 0)] }), void 0), currentStepDescription && (0, jsx_runtime_1.jsx)(react_2.Text, __assign({ marginTop: "1rem" }, { children: currentStepDescription }), void 0), (0, jsx_runtime_1.jsx)(react_2.Box, __assign({ marginTop: "1rem" }, { children: (0, jsx_runtime_1.jsx)(SimpleForm_1.default, { fields: currentStepFields, onSubmit: onSubmit, buttonLabel: buttonLabel, customErrorMessages: customErrorMessages, buttonProps: buttonProps }, void 0) }), void 0)] }, void 0));
 };
 exports.default = SteppedForm;

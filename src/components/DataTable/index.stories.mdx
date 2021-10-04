@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import { Box, AspectRatio, Image, Heading, Text } from '@chakra-ui/react'
+import DataTable from './'
+
+<Meta title="Components/Data Table" component={DataTable} />
+
+# Data Table
+
+Data table is a component to bring data driven tables to your app quick. Component is based on table components from Chakra UI and `react-table` library.
+
+```js
+import { DataTable } from '@mvr-studio/protochakra'
+```
+
+## Basic Example
+
+<Canvas>
+  <Story name="Basic">
+    <DataTable
+      columns={[
+        { Header: 'From', accessor: 'from' },
+        { Header: 'To', accessor: 'to' }
+      ]}
+      data={[
+        { from: 0.1, to: 0.2 },
+        { from: 0.2, to: 0.3 }
+      ]}
+    />
+  </Story>
+</Canvas>

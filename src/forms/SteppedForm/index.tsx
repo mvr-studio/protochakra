@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Text, Heading, HStack, IconButton, Icon, ButtonProps } from '@chakra-ui/react'
 import SimpleForm, { Field } from '../SimpleForm'
 import Stepper from '../../components/Stepper'
-import { FiArrowLeft } from 'react-icons/fi'
+import { ArrowBackIcon } from '@chakra-ui/icons'
 
 type Step = {
   name: string
@@ -43,7 +43,7 @@ const SteppedForm = ({ steps, customErrorMessages, buttonProps, onFormSubmit }: 
       <HStack marginTop="1rem">
         {!isFirstStep && (
           <IconButton aria-label="Go back" variant="ghost" onClick={setPreviousStep}>
-            <Icon as={FiArrowLeft} />
+            <Icon as={ArrowBackIcon} />
           </IconButton>
         )}
         <Heading size="lg">{currentStepName}</Heading>

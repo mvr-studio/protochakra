@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, BoxProps, HStack, Stack, Text, Icon } from '@chakra-ui/react'
-import { RiQuestionLine } from 'react-icons/ri'
+import { QuestionOutlineIcon } from '@chakra-ui/icons'
 
 type Tab = {
   label: string
@@ -30,7 +30,7 @@ const BottomNavigation = ({ tabs, onChange, padding, containerProps, tabProps }:
             onClick={() => (tab.onChangeOverride ? tab.onChangeOverride(tab.pathname) : onChange(tab.pathname))}
             {...tabProps}
           >
-            <Icon as={(tab.Icon as any) || RiQuestionLine} boxSize="1.5rem" />
+            <Icon as={(tab.Icon as any) || QuestionOutlineIcon} boxSize="1.5rem" />
             <Text fontSize="0.75rem" lineHeight={0.5}>
               {tab.label}
             </Text>

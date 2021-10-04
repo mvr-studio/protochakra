@@ -11,10 +11,10 @@ var __assign = (this && this.__assign) || function () {
 };
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Center, Icon, Flex, Text, Box } from '@chakra-ui/react';
-import { FiCheck } from 'react-icons/fi';
+import { CheckIcon } from '@chakra-ui/icons';
 var Indicator = function (_a) {
     var stepNumber = _a.stepNumber, isActive = _a.isActive, isCurrent = _a.isCurrent, activeColor = _a.activeColor, inactiveColor = _a.inactiveColor;
-    return (_jsx(Center, __assign({ height: "2rem", width: "2rem", borderRadius: "50%", backgroundColor: isActive ? activeColor : inactiveColor, color: "white", "data-testid": "protochakra.stepper.indicator" }, { children: isActive ? isCurrent ? stepNumber : _jsx(Icon, { as: FiCheck }, void 0) : stepNumber }), void 0));
+    return (_jsx(Center, __assign({ height: "2rem", width: "2rem", borderRadius: "50%", backgroundColor: isActive ? activeColor : inactiveColor, color: "white", "data-testid": "protochakra.stepper.indicator" }, { children: isActive ? isCurrent ? stepNumber : _jsx(Icon, { as: CheckIcon }, void 0) : stepNumber }), void 0));
 };
 var Line = function () {
     return _jsx(Box, { flex: 1, height: "1px", width: "100%", backgroundColor: "gray.300", marginTop: "1rem" }, void 0);

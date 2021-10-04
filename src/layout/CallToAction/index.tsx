@@ -12,7 +12,7 @@ const CallToAction = ({ heading, description, children, maxWidth, ...containerPr
   return (
     <Box paddingY="2rem" data-testid="protochakra.cta" {...containerProps}>
       <Container maxWidth={maxWidth || 'container.xl'}>
-        <Flex justify="space-between" align="center">
+        <Flex display={['block', 'block', 'flex']} justify="space-between" align="center">
           <Box>
             <Heading size="lg" data-testid="protochakra.cta.heading">
               {heading}
@@ -23,7 +23,9 @@ const CallToAction = ({ heading, description, children, maxWidth, ...containerPr
               </Text>
             )}
           </Box>
-          <Box data-testid="protochakra.cta.addons">{children}</Box>
+          <Box marginTop={['2rem', '2rem', 0]} data-testid="protochakra.cta.addons">
+            {children}
+          </Box>
         </Flex>
       </Container>
     </Box>

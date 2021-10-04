@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { Box, Text, Heading, HStack, IconButton, Icon } from '@chakra-ui/react';
 import SimpleForm from '../SimpleForm';
 import Stepper from '../../components/Stepper';
-import { FiArrowLeft } from 'react-icons/fi';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 var SteppedForm = function (_a) {
     var _b, _c, _d;
     var steps = _a.steps, customErrorMessages = _a.customErrorMessages, buttonProps = _a.buttonProps, onFormSubmit = _a.onFormSubmit;
@@ -36,6 +36,6 @@ var SteppedForm = function (_a) {
             setNextStep();
         }
     };
-    return (_jsxs(Box, { children: [_jsx(Stepper, { steps: stepperSteps, currentStep: currentStep }, void 0), _jsxs(HStack, __assign({ marginTop: "1rem" }, { children: [!isFirstStep && (_jsx(IconButton, __assign({ "aria-label": "Go back", variant: "ghost", onClick: setPreviousStep }, { children: _jsx(Icon, { as: FiArrowLeft }, void 0) }), void 0)), _jsx(Heading, __assign({ size: "lg" }, { children: currentStepName }), void 0)] }), void 0), currentStepDescription && _jsx(Text, __assign({ marginTop: "1rem" }, { children: currentStepDescription }), void 0), _jsx(Box, __assign({ marginTop: "1rem" }, { children: _jsx(SimpleForm, { fields: currentStepFields, onSubmit: onSubmit, buttonLabel: buttonLabel, customErrorMessages: customErrorMessages, buttonProps: buttonProps }, void 0) }), void 0)] }, void 0));
+    return (_jsxs(Box, { children: [_jsx(Stepper, { steps: stepperSteps, currentStep: currentStep }, void 0), _jsxs(HStack, __assign({ marginTop: "1rem" }, { children: [!isFirstStep && (_jsx(IconButton, __assign({ "aria-label": "Go back", variant: "ghost", onClick: setPreviousStep }, { children: _jsx(Icon, { as: ArrowBackIcon }, void 0) }), void 0)), _jsx(Heading, __assign({ size: "lg" }, { children: currentStepName }), void 0)] }), void 0), currentStepDescription && _jsx(Text, __assign({ marginTop: "1rem" }, { children: currentStepDescription }), void 0), _jsx(Box, __assign({ marginTop: "1rem" }, { children: _jsx(SimpleForm, { fields: currentStepFields, onSubmit: onSubmit, buttonLabel: buttonLabel, customErrorMessages: customErrorMessages, buttonProps: buttonProps }, void 0) }), void 0)] }, void 0));
 };
 export default SteppedForm;
