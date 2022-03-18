@@ -1,0 +1,14 @@
+name: Pull Request Workflow
+on:
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '17.6'
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn test

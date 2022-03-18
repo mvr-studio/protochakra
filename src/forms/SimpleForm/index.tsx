@@ -23,33 +23,23 @@ const DEFAULT_FORM_ERRORS: Record<string, string> = {
 }
 
 type FieldLabel = string
-type FieldName = string
-type FieldType = string
 type FieldOptions = {
   label: string
   value: string
-}
-
-export type Field = {
-  label?: FieldLabel
-  name: FieldName
-  type?: FieldType
-  helperText?: string
-  validation?: (zod: any) => void
-  isRequired?: boolean
-  selectOptions?: FieldOptions[]
-  placeholder?: string
+  selected: boolean
 }
 
 type DefaultInputProps = InputProps & TextareaProps & SelectProps
 
-interface FormFieldProps extends DefaultInputProps {
-  name: FieldName
-  type?: FieldType
+export interface Field extends DefaultInputProps {
+  label?: FieldLabel
+  helperText?: string
+  validation?: (zod: any) => void
+  isRequired?: boolean
   selectOptions?: FieldOptions[]
 }
 
-const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest }: FormFieldProps, ref: any) => {
+const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest }: Field, ref: any) => {
   switch (type) {
     case 'textarea':
       return <Textarea placeholder={placeholder} ref={ref} {...rest} />
@@ -57,7 +47,9 @@ const FormField = React.forwardRef(({ type, selectOptions, placeholder, ...rest 
       return (
         <Select placeholder={placeholder || 'Select one'} ref={ref} {...rest}>
           {selectOptions?.map((option) => (
-            <option value={option.value}>{option.label}</option>
+            <option value={option.value} selected={option.selected}>
+              {option.label}
+            </option>
           ))}
         </Select>
       )
@@ -91,29 +83,34 @@ const SimpleForm = ({ fields, onSubmit, buttonLabel, buttonProps, customErrorMes
 
   return (
     <Stack as="form" onSubmit={handleSubmit(onSubmit)} gridGap="0.5rem" data-testid="protochakra.simpleForm" noValidate>
-      {fields.map((field) => (
-        <FormControl
-          isRequired={field?.isRequired}
-          isInvalid={!!errors?.[field.name]}
-          marginTop="1rem"
-          data-testid="protochakra.simpleForm.control"
-        >
-          {field?.label && <FormLabel data-testid="protochakra.simpleForm.label">{field.label}</FormLabel>}
-          <FormField
-            type={field?.type}
-            selectOptions={field?.selectOptions}
-            placeholder={field?.placeholder}
-            data-testid="protochakra.simpleForm.field"
-            {...register(field.name, { required: field?.isRequired })}
-          />
-          <FormErrorMessage data-testid="protochakra.simpleForm.error">
-            {getFormError(errors?.[field.name]?.type)}
-          </FormErrorMessage>
-          {field?.helperText && (
-            <FormHelperText data-testid="protochakra.simpleForm.helper">{field.helperText}</FormHelperText>
-          )}
-        </FormControl>
-      ))}
+      {fields.map((field, i) => {
+        if (!field.name) throw new Error('name property missing for field')
+        return (
+          <FormControl
+            key={i}
+            isRequired={field?.isRequired}
+            isInvalid={!!errors?.[field.name]}
+            marginTop="1rem"
+            data-testid="protochakra.simpleForm.control"
+          >
+            {field?.label && <FormLabel data-testid="protochakra.simpleForm.label">{field.label}</FormLabel>}
+            <FormField
+              type={field?.type}
+              selectOptions={field?.selectOptions}
+              placeholder={field?.placeholder}
+              data-testid="protochakra.simpleForm.field"
+              {...register(field.name, { required: field?.isRequired })}
+              {...field}
+            />
+            <FormErrorMessage data-testid="protochakra.simpleForm.error">
+              {getFormError(errors?.[field.name]?.type)}
+            </FormErrorMessage>
+            {field?.helperText && (
+              <FormHelperText data-testid="protochakra.simpleForm.helper">{field.helperText}</FormHelperText>
+            )}
+          </FormControl>
+        )
+      })}
       <Box>
         <Button
           type="submit"

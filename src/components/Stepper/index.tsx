@@ -46,7 +46,7 @@ const Stepper = ({ steps, currentStep, activeColor = 'blue.600', inactiveColor =
   return (
     <Flex justify="space-between" data-testid="protochakra.stepper" data-current-step={currentStep}>
       {steps.map((step, i) => (
-        <>
+        <React.Fragment key={i}>
           {isFirstStep(i) && <Line />}
           <Center
             flexDirection="column"
@@ -67,7 +67,7 @@ const Stepper = ({ steps, currentStep, activeColor = 'blue.600', inactiveColor =
             </Text>
           </Center>
           {isLastStep(i) && <Line />}
-        </>
+        </React.Fragment>
       ))}
     </Flex>
   )

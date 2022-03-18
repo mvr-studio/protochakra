@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { ButtonProps } from '@chakra-ui/react';
 import { Field } from '../SimpleForm';
 declare type Step = {

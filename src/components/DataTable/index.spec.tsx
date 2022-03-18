@@ -1,11 +1,11 @@
 import React from 'react'
 import { ChakraProvider, theme } from '@chakra-ui/react'
-import { mount } from '@cypress/react'
+import { render, screen } from '@testing-library/react'
 import DataTable from './'
 
 describe('DataTable', () => {
   it('Renders initial', () => {
-    mount(
+    render(
       <ChakraProvider theme={theme}>
         <DataTable
           columns={[
@@ -19,7 +19,7 @@ describe('DataTable', () => {
         />
       </ChakraProvider>
     )
-    cy.findByTestId('protochakra.dataTable').contains('From')
-    cy.findByTestId('protochakra.dataTable').contains('0.2')
+    expect(screen.getByTestId('protochakra.dataTable').textContent).toContain('From')
+    expect(screen.getByTestId('protochakra.dataTable').textContent).toContain('0.2')
   })
 })

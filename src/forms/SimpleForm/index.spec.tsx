@@ -1,31 +1,32 @@
 import React from 'react'
 import { ChakraProvider, theme } from '@chakra-ui/react'
-import { mount } from '@cypress/react'
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import SimpleForm from './'
 
 describe('SimpleForm', () => {
-  it('Renders initial and triggers onSubmit', () => {
-    const onSubmit = cy.spy()
-    mount(
+  it('Renders initial and triggers onSubmit', async () => {
+    const onSubmit = jest.fn()
+    render(
       <ChakraProvider theme={theme}>
         <SimpleForm fields={[{ label: 'First Name', name: 'first_name', isRequired: true }]} onSubmit={onSubmit} />
       </ChakraProvider>
     )
-    cy.findAllByTestId('protochakra.simpleForm.control').its('length').should('eq', 1)
-    cy.findAllByTestId('protochakra.simpleForm.label').eq(0).contains('First Name')
-    cy.findAllByTestId('protochakra.simpleForm.field').eq(0).clear().type('Trevor')
-    cy.findByTestId('protochakra.simpleForm.submit')
-      .click()
-      .then(() => {
-        /* eslint-disable @typescript-eslint/no-unused-expressions */
-        // eslint-disable-next-line jest/valid-expect
-        expect(onSubmit).to.be.called
-      })
+    expect(screen.getAllByTestId('protochakra.simpleForm.control').length).toEqual(1)
+    expect(screen.getByTestId('protochakra.simpleForm.label').textContent).toContain('First Name')
+    const input: HTMLInputElement = screen.getByTestId('protochakra.simpleForm.field')
+    const submitButton = screen.getByTestId('protochakra.simpleForm.submit')
+    act(() => {
+      fireEvent.change(input, { target: { value: 'Trevor' } })
+      fireEvent.click(submitButton)
+    })
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalled()
+    })
   })
 
-  it('Handles isRequired validation', () => {
-    const onSubmit = cy.spy()
-    mount(
+  it('Handles isRequired validation', async () => {
+    const onSubmit = jest.fn()
+    render(
       <ChakraProvider theme={theme}>
         <SimpleForm
           fields={[
@@ -36,15 +37,28 @@ describe('SimpleForm', () => {
         />
       </ChakraProvider>
     )
-    cy.findAllByTestId('protochakra.simpleForm.control').its('length').should('eq', 2)
-    cy.findAllByTestId('protochakra.simpleForm.label').eq(0).contains('First Name')
-    cy.findByTestId('protochakra.simpleForm.submit').click()
-    cy.findAllByTestId('protochakra.simpleForm.error').its('length').should('eq', 2)
-    cy.findAllByTestId('protochakra.simpleForm.field').eq(0).clear().type('Trevor')
-    cy.findByTestId('protochakra.simpleForm.submit').click()
-    cy.findAllByTestId('protochakra.simpleForm.error').its('length').should('eq', 1)
-    cy.findAllByTestId('protochakra.simpleForm.field').eq(1).clear().type('Philips')
-    cy.findByTestId('protochakra.simpleForm.submit').click()
-    cy.findByTestId('protochakra.simpleForm.error').should('not.exist')
+    const submitButton = screen.getByTestId('protochakra.simpleForm.submit')
+    expect(screen.getAllByTestId('protochakra.simpleForm.control').length).toEqual(2)
+    expect(screen.getAllByTestId('protochakra.simpleForm.label')[0].textContent).toContain('First Name')
+    act(() => {
+      fireEvent.click(submitButton)
+    })
+    await waitFor(() => {
+      expect(screen.getAllByTestId('protochakra.simpleForm.error').length).toEqual(2)
+    })
+    act(() => {
+      fireEvent.change(screen.getAllByTestId('protochakra.simpleForm.field')[0], { target: { value: 'Trevor' } })
+      fireEvent.click(submitButton)
+    })
+    await waitFor(() => {
+      expect(screen.getAllByTestId('protochakra.simpleForm.error').length).toEqual(1)
+    })
+    act(() => {
+      fireEvent.change(screen.getAllByTestId('protochakra.simpleForm.field')[1], { target: { value: 'Philips' } })
+      fireEvent.click(submitButton)
+    })
+    await waitFor(() => {
+      expect(screen.queryByTestId('protochakra.simpleForm.error')).not.toBeInTheDocument()
+    })
   })
 })

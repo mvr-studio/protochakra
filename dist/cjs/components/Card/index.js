@@ -39,7 +39,7 @@ exports.CARD_DEFAULTS = {
 };
 var Card = function (_a) {
     var children = _a.children, _b = _a.shadowOffsetX, shadowOffsetX = _b === void 0 ? exports.CARD_DEFAULTS.shadowOffsetX : _b, _c = _a.shadowOffsetY, shadowOffsetY = _c === void 0 ? exports.CARD_DEFAULTS.shadowOffsetY : _c, _d = _a.blurRadius, blurRadius = _d === void 0 ? exports.CARD_DEFAULTS.blurRadius : _d, _e = _a.spreadRadius, spreadRadius = _e === void 0 ? exports.CARD_DEFAULTS.spreadRadius : _e, _f = _a.shadowColor, shadowColor = _f === void 0 ? exports.CARD_DEFAULTS.shadowColor : _f, _g = _a.shadowAlpha, shadowAlpha = _g === void 0 ? exports.CARD_DEFAULTS.shadowAlpha : _g, _h = _a.borderRadius, borderRadius = _h === void 0 ? exports.CARD_DEFAULTS.borderRadius : _h, _j = _a.padding, padding = _j === void 0 ? exports.CARD_DEFAULTS.padding : _j, _k = _a.border, border = _k === void 0 ? exports.CARD_DEFAULTS.border : _k, boxShadow = _a.boxShadow, rest = __rest(_a, ["children", "shadowOffsetX", "shadowOffsetY", "blurRadius", "spreadRadius", "shadowColor", "shadowAlpha", "borderRadius", "padding", "border", "boxShadow"]);
-    var computedShadow = boxShadow || shadowOffsetX + " " + shadowOffsetY + " " + blurRadius + " " + spreadRadius + " " + (0, polished_1.rgba)(shadowColor, shadowAlpha);
-    return ((0, jsx_runtime_1.jsx)(react_1.Box, __assign({ boxShadow: computedShadow, borderRadius: borderRadius, padding: padding, border: border, "data-testid": "protochakra.card" }, rest, { children: children }), void 0));
+    var computedShadow = boxShadow || "".concat(shadowOffsetX, " ").concat(shadowOffsetY, " ").concat(blurRadius, " ").concat(spreadRadius, " ").concat((0, polished_1.rgba)(shadowColor, shadowAlpha));
+    return ((0, jsx_runtime_1.jsx)(react_1.Box, __assign({ boxShadow: computedShadow, borderRadius: borderRadius, padding: padding, border: border, "data-testid": "protochakra.card" }, rest, { children: children })));
 };
 exports.default = Card;

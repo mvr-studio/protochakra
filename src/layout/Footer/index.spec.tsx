@@ -1,19 +1,18 @@
 import React from 'react'
-import { ChakraProvider, theme } from '@chakra-ui/react'
-import { mount } from '@cypress/react'
-import { Box } from '@chakra-ui/react'
+import { ChakraProvider, theme, Box } from '@chakra-ui/react'
+import { render, screen } from '@testing-library/react'
 import Footer from './'
 
 describe('Footer', () => {
   it('Renders initial with copyrights owner', () => {
     const currentYear = new Date().getFullYear()
-    mount(
+    render(
       <ChakraProvider theme={theme}>
         <Footer copyrightOwner="MVR Studio">
           <Box>Test</Box>
         </Footer>
       </ChakraProvider>
     )
-    cy.findByTestId('protochakra.footer.copyrightOwner').contains(`© ${currentYear} MVR Studio`)
+    expect(screen.getByTestId('protochakra.footer.copyrightOwner').textContent).toContain(`© ${currentYear} MVR Studio`)
   })
 })

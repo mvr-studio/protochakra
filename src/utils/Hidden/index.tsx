@@ -23,8 +23,9 @@ const HIDDEN_BELOW: Record<string, boolean[]> = {
   '2xl': [true, true, true, true, false]
 }
 
-export const arrayToDisplay = (property: boolean[], defaultDisplay?: BoxProps['display']) =>
+export const arrayToDisplay = (property: boolean[], defaultDisplay?: BoxProps['display']): BoxProps['display'][] =>
   property.map((value) => (value ? 'none' : defaultDisplay))
+
 export const mergeBooleanArrays = (first: boolean[], second: boolean[]) => {
   return BASE_ARRAY.map((value, i) => value || first?.[i] || second?.[i] || false)
 }

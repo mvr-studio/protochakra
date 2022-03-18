@@ -18,6 +18,7 @@ export interface SteppedFormProps {
 }
 
 const SteppedForm = ({ steps, customErrorMessages, buttonProps, onFormSubmit }: SteppedFormProps) => {
+  const [formData, setFormData] = useState<Record<string, any>>({})
   const [currentStep, setCurrentStep] = useState(0)
   const setNextStep = () => setCurrentStep(currentStep + 1)
   const setPreviousStep = () => setCurrentStep(currentStep - 1)
@@ -29,13 +30,27 @@ const SteppedForm = ({ steps, customErrorMessages, buttonProps, onFormSubmit }: 
   const currentStepDescription = steps?.[currentStep]?.description
   const buttonLabel = isLastStep ? 'Submit' : 'Next'
 
+  const pushFormData = (data: Record<string, any>) => {
+    setFormData({
+      ...formData,
+      ...data
+    })
+  }
+
   const onSubmit = (data: Record<string, any>) => {
+    pushFormData(data)
     if (isLastStep) {
-      onFormSubmit(data)
+      onFormSubmit({ ...formData, ...data })
     } else {
       setNextStep()
     }
   }
+
+  const currentStepFieldsWithDefaultValues = currentStepFields.map((field) => ({
+    ...field,
+    defaultValue: field.name && formData[field.name],
+    defaultChecked: field.name && formData[field.name]
+  }))
 
   return (
     <Box>
@@ -51,7 +66,8 @@ const SteppedForm = ({ steps, customErrorMessages, buttonProps, onFormSubmit }: 
       {currentStepDescription && <Text marginTop="1rem">{currentStepDescription}</Text>}
       <Box marginTop="1rem">
         <SimpleForm
-          fields={currentStepFields}
+          key={currentStep}
+          fields={currentStepFieldsWithDefaultValues}
           onSubmit={onSubmit}
           buttonLabel={buttonLabel}
           customErrorMessages={customErrorMessages}

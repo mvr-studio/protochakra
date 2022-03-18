@@ -31,15 +31,15 @@ var FormField = React.forwardRef(function (_a, ref) {
     var type = _a.type, selectOptions = _a.selectOptions, placeholder = _a.placeholder, rest = __rest(_a, ["type", "selectOptions", "placeholder"]);
     switch (type) {
         case 'textarea':
-            return _jsx(Textarea, __assign({ placeholder: placeholder, ref: ref }, rest), void 0);
+            return _jsx(Textarea, __assign({ placeholder: placeholder, ref: ref }, rest));
         case 'select':
-            return (_jsx(Select, __assign({ placeholder: placeholder || 'Select one', ref: ref }, rest, { children: selectOptions === null || selectOptions === void 0 ? void 0 : selectOptions.map(function (option) { return (_jsx("option", __assign({ value: option.value }, { children: option.label }), void 0)); }) }), void 0));
+            return (_jsx(Select, __assign({ placeholder: placeholder || 'Select one', ref: ref }, rest, { children: selectOptions === null || selectOptions === void 0 ? void 0 : selectOptions.map(function (option) { return (_jsx("option", __assign({ value: option.value, selected: option.selected }, { children: option.label }))); }) })));
         case 'checkbox':
             return (
             // @ts-ignore
-            _jsx(Checkbox, __assign({ size: "lg", ref: ref }, rest, { children: placeholder }), void 0));
+            _jsx(Checkbox, __assign({ size: "lg", ref: ref }, rest, { children: placeholder })));
         default:
-            return _jsx(Input, __assign({ placeholder: placeholder, type: type, ref: ref }, rest), void 0);
+            return _jsx(Input, __assign({ placeholder: placeholder, type: type, ref: ref }, rest));
     }
 });
 var SimpleForm = function (_a) {
@@ -48,7 +48,9 @@ var SimpleForm = function (_a) {
     var getFormError = function (errorType) { return (customErrorMessages === null || customErrorMessages === void 0 ? void 0 : customErrorMessages[errorType]) || (DEFAULT_FORM_ERRORS === null || DEFAULT_FORM_ERRORS === void 0 ? void 0 : DEFAULT_FORM_ERRORS[errorType]); };
     return (_jsxs(Stack, __assign({ as: "form", onSubmit: handleSubmit(onSubmit), gridGap: "0.5rem", "data-testid": "protochakra.simpleForm", noValidate: true }, { children: [fields.map(function (field) {
                 var _a;
-                return (_jsxs(FormControl, __assign({ isRequired: field === null || field === void 0 ? void 0 : field.isRequired, isInvalid: !!(errors === null || errors === void 0 ? void 0 : errors[field.name]), marginTop: "1rem", "data-testid": "protochakra.simpleForm.control" }, { children: [(field === null || field === void 0 ? void 0 : field.label) && _jsx(FormLabel, __assign({ "data-testid": "protochakra.simpleForm.label" }, { children: field.label }), void 0), _jsx(FormField, __assign({ type: field === null || field === void 0 ? void 0 : field.type, selectOptions: field === null || field === void 0 ? void 0 : field.selectOptions, placeholder: field === null || field === void 0 ? void 0 : field.placeholder, "data-testid": "protochakra.simpleForm.field" }, register(field.name, { required: field === null || field === void 0 ? void 0 : field.isRequired })), void 0), _jsx(FormErrorMessage, __assign({ "data-testid": "protochakra.simpleForm.error" }, { children: getFormError((_a = errors === null || errors === void 0 ? void 0 : errors[field.name]) === null || _a === void 0 ? void 0 : _a.type) }), void 0), (field === null || field === void 0 ? void 0 : field.helperText) && (_jsx(FormHelperText, __assign({ "data-testid": "protochakra.simpleForm.helper" }, { children: field.helperText }), void 0))] }), void 0));
-            }), _jsx(Box, { children: _jsx(Button, __assign({ type: "submit", size: "lg", isLoading: isSubmitting, "data-testid": "protochakra.simpleForm.submit" }, buttonProps, { children: buttonLabel || 'Submit' }), void 0) }, void 0)] }), void 0));
+                if (!field.name)
+                    throw new Error('name property missing for field');
+                return (_jsxs(FormControl, __assign({ isRequired: field === null || field === void 0 ? void 0 : field.isRequired, isInvalid: !!(errors === null || errors === void 0 ? void 0 : errors[field.name]), marginTop: "1rem", "data-testid": "protochakra.simpleForm.control" }, { children: [(field === null || field === void 0 ? void 0 : field.label) && _jsx(FormLabel, __assign({ "data-testid": "protochakra.simpleForm.label" }, { children: field.label })), _jsx(FormField, __assign({ type: field === null || field === void 0 ? void 0 : field.type, selectOptions: field === null || field === void 0 ? void 0 : field.selectOptions, placeholder: field === null || field === void 0 ? void 0 : field.placeholder, "data-testid": "protochakra.simpleForm.field" }, register(field.name, { required: field === null || field === void 0 ? void 0 : field.isRequired }), field)), _jsx(FormErrorMessage, __assign({ "data-testid": "protochakra.simpleForm.error" }, { children: getFormError((_a = errors === null || errors === void 0 ? void 0 : errors[field.name]) === null || _a === void 0 ? void 0 : _a.type) })), (field === null || field === void 0 ? void 0 : field.helperText) && (_jsx(FormHelperText, __assign({ "data-testid": "protochakra.simpleForm.helper" }, { children: field.helperText })))] })));
+            }), _jsx(Box, { children: _jsx(Button, __assign({ type: "submit", size: "lg", isLoading: isSubmitting, "data-testid": "protochakra.simpleForm.submit" }, buttonProps, { children: buttonLabel || 'Submit' })) })] })));
 };
 export default SimpleForm;

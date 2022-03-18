@@ -25,6 +25,6 @@ import { Box, Container, SimpleGrid } from '@chakra-ui/react';
 var Footer = function (_a) {
     var copyrightOwner = _a.copyrightOwner, children = _a.children, maxWidth = _a.maxWidth, containerProps = __rest(_a, ["copyrightOwner", "children", "maxWidth"]);
     var currentYear = new Date().getFullYear();
-    return (_jsxs(Box, __assign({ paddingY: "2rem" }, containerProps, { children: [_jsx(Container, __assign({ maxWidth: maxWidth || 'container.xl' }, { children: _jsx(SimpleGrid, __assign({ columns: [1, 1, 4], gridGap: "2rem" }, { children: children }), void 0) }), void 0), copyrightOwner && (_jsxs(Container, __assign({ maxWidth: maxWidth || 'container.xl', textAlign: ['left', 'left', 'center'], marginTop: "2rem", "data-testid": "protochakra.footer.copyrightOwner" }, { children: ["\u00A9 ", currentYear, " ", copyrightOwner] }), void 0))] }), void 0));
+    return (_jsxs(Box, __assign({ paddingY: "2rem" }, containerProps, { children: [_jsx(Container, __assign({ maxWidth: maxWidth || 'container.xl' }, { children: _jsx(SimpleGrid, __assign({ columns: [1, 1, 4], gridGap: "2rem" }, { children: children })) })), copyrightOwner && (_jsxs(Container, __assign({ maxWidth: maxWidth || 'container.xl', textAlign: ['left', 'left', 'center'], marginTop: "2rem", "data-testid": "protochakra.footer.copyrightOwner" }, { children: ["\u00A9 ", currentYear, " ", copyrightOwner] })))] })));
 };
 export default Footer;

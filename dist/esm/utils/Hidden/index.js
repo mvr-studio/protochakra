@@ -47,6 +47,6 @@ var Hidden = function (_a) {
     var belowArray = below ? HIDDEN_BELOW[below] : [];
     var mergedArrays = mergeBooleanArrays(aboveArray, belowArray);
     var hiddenDisplay = arrayToDisplay(mergedArrays, defaultDisplay || 'block');
-    return _jsx(Box, __assign({ display: hiddenDisplay || display }, restOfProps), void 0);
+    return _jsx(Box, __assign({ display: hiddenDisplay || display }, restOfProps));
 };
 export default Hidden;

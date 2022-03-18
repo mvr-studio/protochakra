@@ -15,10 +15,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["cypress", "@testing-library/cypress", "@chakra-ui/react"],
+    "types": ["@chakra-ui/react"],
     "outDir": "dist",
     "declaration": true
   },
-  "include": ["src"],
+  "include": ["src", "./jest-setup.ts"],
   "exclude": ["**/**/*.stories.tsx", "**/**/*.spec.tsx"]
 }

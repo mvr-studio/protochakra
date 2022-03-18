@@ -57,6 +57,37 @@ Simple Form has default validation messages in English. However, they are easily
   </Story>
 </Canvas>
 
+## Default values
+
+To handle default values, `field` accepts `defaultValue` and `selectOptions` entry accepts `selected`.
+
+<Canvas>
+  <Story name="Default values">
+    <SimpleForm
+      fields={[
+        {
+          label: 'Email Address',
+          name: 'email',
+          type: 'email',
+          isRequired: true,
+          placeholder: 'your@email.com',
+          defaultValue: 'john@doe.com'
+        },
+        {
+          label: 'Preferred Contact Way',
+          name: 'preferred_contact',
+          type: 'select',
+          selectOptions: [
+            { label: 'Email', value: 'email' },
+            { label: 'Phone', value: 'phone', selected: true }
+          ]
+        }
+      ]}
+      onSubmit={(data) => console.dir(data)}
+    />
+  </Story>
+</Canvas>
+
 ## Button Properties
 
 To customize form's button, there are 2 properties - `buttonLabel` and `buttonProps`.

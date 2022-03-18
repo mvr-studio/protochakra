@@ -1,15 +1,15 @@
 import React from 'react'
 import { ChakraProvider, theme } from '@chakra-ui/react'
-import { mount } from '@cypress/react'
+import { render, screen } from '@testing-library/react'
 import Card from './'
 
 describe('Card', () => {
   it('Renders initial', () => {
-    mount(
+    render(
       <ChakraProvider theme={theme}>
         <Card>Test</Card>
       </ChakraProvider>
     )
-    cy.findByTestId('protochakra.card').contains('Test')
+    expect(screen.getByTestId('protochakra.card').textContent).toContain('Test')
   })
 })

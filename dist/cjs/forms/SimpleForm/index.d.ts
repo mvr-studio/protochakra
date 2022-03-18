@@ -1,22 +1,18 @@
-/// <reference types="react" />
-import { ButtonProps } from '@chakra-ui/react';
+import { InputProps, TextareaProps, SelectProps, ButtonProps } from '@chakra-ui/react';
 declare type FieldLabel = string;
-declare type FieldName = string;
-declare type FieldType = string;
 declare type FieldOptions = {
     label: string;
     value: string;
+    selected: boolean;
 };
-export declare type Field = {
+declare type DefaultInputProps = InputProps & TextareaProps & SelectProps;
+export interface Field extends DefaultInputProps {
     label?: FieldLabel;
-    name: FieldName;
-    type?: FieldType;
     helperText?: string;
     validation?: (zod: any) => void;
     isRequired?: boolean;
     selectOptions?: FieldOptions[];
-    placeholder?: string;
-};
+}
 export interface SimpleFormProps {
     fields: Field[];
     onSubmit: (data: Record<string, any>) => void;

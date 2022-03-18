@@ -22,8 +22,9 @@ const BottomNavigation = ({ tabs, onChange, padding, containerProps, tabProps }:
   return (
     <Box padding={'0.5rem 1rem 0.75rem' || padding} data-testid="protochakra.bottomNavigation" {...containerProps}>
       <HStack justify="space-around">
-        {tabs.map((tab) => (
+        {tabs.map((tab, i) => (
           <Stack
+            key={i}
             justifyContent="center"
             alignItems="center"
             cursor="pointer"

@@ -1,11 +1,11 @@
 import React from 'react'
 import { ChakraProvider, theme } from '@chakra-ui/react'
-import { mount } from '@cypress/react'
+import { render, screen } from '@testing-library/react'
 import BottomNavigation from './'
 
 describe('BottomNavigation', () => {
   it('Renders initial', () => {
-    mount(
+    render(
       <ChakraProvider theme={theme}>
         <BottomNavigation
           tabs={[
@@ -20,6 +20,6 @@ describe('BottomNavigation', () => {
         />
       </ChakraProvider>
     )
-    cy.findByTestId('protochakra.bottomNavigation').contains('Home')
+    expect(screen.getByTestId('protochakra.bottomNavigation').textContent).toContain('Home')
   })
 })

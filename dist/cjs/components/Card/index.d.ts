@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { BoxProps } from '@chakra-ui/react';
 declare type CardProps = {
     shadowOffsetX?: string | number;

@@ -3,20 +3,21 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/preset-create-react-app',
-    'storybook-dark-mode'
+    'storybook-dark-mode',
+    '@storybook/addon-interactions'
   ],
+  framework: '@storybook/react',
+  features: { emotionAlias: false },
   webpackFinal: async (config) => {
-    return {
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          '@emotion/core': '@emotion/react',
-          'emotion-theming': '@emotion/react'
-        }
-      }
-    }
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto'
+    })
+    return config
+  },
+  babel: async (options) => {
+    options.plugins.push('babel-plugin-inline-react-svg')
+    return options
   }
 }

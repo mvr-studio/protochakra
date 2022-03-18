@@ -1,4 +1,3 @@
-/// <reference types="react" />
 declare type Data = Record<string, string | number | boolean>;
 declare type ColumnData = Data & {
     accessor: string;

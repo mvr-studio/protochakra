@@ -52,6 +52,6 @@ var Hidden = function (_a) {
     var belowArray = below ? HIDDEN_BELOW[below] : [];
     var mergedArrays = (0, exports.mergeBooleanArrays)(aboveArray, belowArray);
     var hiddenDisplay = (0, exports.arrayToDisplay)(mergedArrays, defaultDisplay || 'block');
-    return (0, jsx_runtime_1.jsx)(react_1.Box, __assign({ display: hiddenDisplay || display }, restOfProps), void 0);
+    return (0, jsx_runtime_1.jsx)(react_1.Box, __assign({ display: hiddenDisplay || display }, restOfProps));
 };
 exports.default = Hidden;

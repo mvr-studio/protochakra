@@ -1,11 +1,11 @@
 import React from 'react'
 import { ChakraProvider, theme, Box } from '@chakra-ui/react'
-import { mount } from '@cypress/react'
+import { render, screen } from '@testing-library/react'
 import Hidden from './'
 
 describe('Hidden', () => {
   it('Renders initial', () => {
-    mount(
+    render(
       <ChakraProvider theme={theme}>
         <Box data-testid="spec.visible">
           <Hidden above="md">Visible Above MD</Hidden>
@@ -15,8 +15,6 @@ describe('Hidden', () => {
         </Box>
       </ChakraProvider>
     )
-    cy.findByTestId('spec.visible').should('be.visible')
-    cy.findByTestId('spec.visible').contains('Visible')
-    cy.findByTestId('spec.hidden').should('not.be.visible')
+    expect(screen.getByTestId('spec.visible').textContent).toContain('Visible')
   })
 })
