@@ -9,7 +9,8 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import React from 'react';
 import { Center, Icon, Flex, Text, Box } from '@chakra-ui/react';
 import { CheckIcon } from '@chakra-ui/icons';
 var Indicator = function (_a) {
@@ -24,6 +25,6 @@ var Stepper = function (_a) {
     var isFirstStep = function (i) { return i !== 0; };
     var isLastStep = function (i) { return i !== steps.length - 1; };
     var isActive = function (i) { return i <= currentStep; };
-    return (_jsx(Flex, __assign({ justify: "space-between", "data-testid": "protochakra.stepper", "data-current-step": currentStep }, { children: steps.map(function (step, i) { return (_jsxs(_Fragment, { children: [isFirstStep(i) && _jsx(Line, {}), _jsxs(Center, __assign({ flexDirection: "column", "data-testid": "protochakra.step", "data-is-active": isActive(i), "data-is-current": i === currentStep }, { children: [_jsx(Indicator, { stepNumber: i + 1, isActive: isActive(i), isCurrent: i === currentStep, activeColor: activeColor, inactiveColor: inactiveColor }, i), _jsx(Text, __assign({ fontSize: "14px", marginTop: "0.25rem", color: isActive(i) ? activeColor : inactiveColor }, { children: step }))] })), isLastStep(i) && _jsx(Line, {})] })); }) })));
+    return (_jsx(Flex, __assign({ justify: "space-between", "data-testid": "protochakra.stepper", "data-current-step": currentStep }, { children: steps.map(function (step, i) { return (_jsxs(React.Fragment, { children: [isFirstStep(i) && _jsx(Line, {}), _jsxs(Center, __assign({ flexDirection: "column", "data-testid": "protochakra.step", "data-is-active": isActive(i), "data-is-current": i === currentStep }, { children: [_jsx(Indicator, { stepNumber: i + 1, isActive: isActive(i), isCurrent: i === currentStep, activeColor: activeColor, inactiveColor: inactiveColor }, i), _jsx(Text, __assign({ fontSize: "14px", marginTop: "0.25rem", color: isActive(i) ? activeColor : inactiveColor }, { children: step }))] })), isLastStep(i) && _jsx(Line, {})] }, i)); }) })));
 };
 export default Stepper;
