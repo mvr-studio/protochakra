@@ -19,6 +19,6 @@
     "outDir": "dist",
     "declaration": true
   },
-  "include": ["src", "./jest-setup.ts"],
+  "include": ["src"],
   "exclude": ["**/**/*.stories.tsx", "**/**/*.spec.tsx"]
 }
